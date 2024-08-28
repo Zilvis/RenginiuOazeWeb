@@ -10,25 +10,25 @@ document.addEventListener('DOMContentLoaded', async function() {
         return;
     }
 
-    // // Load user information on page load
-    // try {
-    //     const response = await fetch('/userinfo', {
-    //         method: 'GET',
-    //         headers: {
-    //             'Authorization': 'Bearer ' + jwt // Send the token in the Authorization header
-    //         }
-    //     });
+    // Load user information on page load
+    try {
+        const response = await fetch('http://localhost:8080/api/test/info', {
+            method: 'GET',
+            headers: {
+                'Authorization': 'Bearer ' + jwt // Send the token in the Authorization header
+            }
+        });
 
-    //     if (response.ok) {
-    //         const userData = await response.json();
-    //         document.getElementById('user-info').textContent = `Hello, ${userData.username} (${userData.email})`;
-    //     } else {
-    //         // Redirect to login if not authenticated
-    //         window.location.href = '/login.html';
-    //     }
-    // } catch (error) {
-    //     console.error('Error:', error);
-    // }
+        if (response.ok) {
+            const userData = await response.json();
+            document.getElementById('user-info').textContent = `Hello, ${userData.password} (${userData.email})`;
+        } else {
+            // Redirect to login if not authenticated
+            window.location.href = '/login.html';
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
 
     // Add event listeners for the test endpoints
     document.getElementById('public-content-btn').addEventListener('click', async function() {

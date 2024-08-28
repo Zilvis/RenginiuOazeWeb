@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+* {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #555;
+    -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+img {
+    pointer-events: none;
+}
+body {  
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    width: 100%;
+    max-width: 95%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: 100%;
+    margin: 10vh 0;
+}
+
+a{
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:visited{
+    text-decoration: none;
+}
+
+button{
+    background-color: #ffc917;
+    transition: color 0.3s ease;
+    box-shadow: 0 1px #888888;
+    color: #555;
+    text-transform: uppercase;
+    padding: 1.4vh;
+    border: none;
+    border-radius: 2px;
+    font-size: 15px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+button:hover{
+    color: #fff;
+}
+
+header {
+    display: block;
+}
+
+.main-header {
+    position: relative;
+}
+
+header {
+    display: block;
+}
+
+.main-header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15vh 0 0;
+    background-color: #fff;
+    border-bottom: 1px solid #363636;
+}
+
+.logo img {
+    width: 25vh;
+}
+
+.top-nav-header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.top-nav-items li {
+    list-style-type: none;
+    display: inline;
+    margin-left: 2vh;
+}
+
+.top-nav-items li a:hover{
+    color: #ffc917;
+}
+
+
+.events {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+}
+
+.event-item {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 10px;
+}
+
+.event-item img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+.event-details {
+    padding: 10px;
+}
+
+.event-details h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.price {
+    color: #ff5722;
+    font-weight: bold;
+}
+
+.date {
+    color: #777;
+    font-size: 0.9em;
+}
+
+.buy-ticket-button {
+    display: none;
+    background-color: #ffc917;
+    color: #555;
+    padding: 10px 20px;
+    border-radius: 2px;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: center;
+}
+
+.buy-ticket-button:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+/* Show button on hover */
+.event-item:hover .buy-ticket-button {
+    display: block;
+    
+}
+
+/* Filter Section Styles */
+
+.filter-section {
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    padding: 50px 0;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+    background-image: url('/imgs/bg.png'); /* Update with the correct path */
+    background-size:auto;
+    background-position: center;
+    
+}
+
+.filter-group select {
+    width: 100%;
+    padding: 1vh;
+}
+
+@media (max-width: 1300px) {
+    .events {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1200px) {
+    .events {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .events {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .events {
+        grid-template-columns: 1fr;
+    }
+
+    .buy-ticket-button {
+        display: block;
+    }
+
+    .filter-section {
+        background-image: none;
+        padding: 5px;
+    }
+}

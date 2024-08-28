@@ -3,27 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Renginiu oazė</title>
+    <link rel="stylesheet" href="/styles/styles.css">
 </head>
 <body>
-    <div class="index-container">
-        <h1>Welcome to the User Dashboard</h1>
-        <p id="user-info">Loading user information...</p>
+    <div class="main">
+        <header>
+            <div class="main-header">
+                <div class="logo">
+                    <img src="/imgs/logo.png" alt="Logo">
+                </div>
+                <div class="top-nav-header">
+                    <ul class="top-nav-items">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
 
-        <!-- New Section for Accessing Test Endpoints -->
-        <div class="access-controls">
-            <button id="public-content-btn">Public Content</button>
-            <button id="user-content-btn">User Content</button>
-            <button id="moderator-content-btn">Moderator Content</button>
-            <button id="admin-content-btn">Admin Content</button>
+
+        <div class="content">
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <div class="filter-group">
+                    <label for="category">Category:</label>
+                    <select id="category">
+                        <option value="">All Categories</option>
+                        <option value="concert">Concert</option>
+                        <option value="theater">Theater</option>
+                        <option value="sports">Sports</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="category">Category:</label>
+                    <select id="category">
+                        <option value="">All Categories</option>
+                        <option value="concert">Concert</option>
+                        <option value="theater">Theater</option>
+                        <option value="sports">Sports</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="place">Place:</label>
+                    <select id="place">
+                        <option value="">All Places</option>
+                        <option value="city1">City 1</option>
+                        <option value="city2">City 2</option>
+                        <option value="city3">City 3</option>
+                    </select>
+                </div>
+            </div>
+        
+
+            <!-- Events Section -->
+            <section class="events">
+                <!-- Event items -->
+                <div class="event-item">
+                    <img src="/imgs/2.webp" alt="Event Photo">
+                    <div class="event-details">
+                        <h3>III TARPTAUTINIS JOSEPHO ACHRONO MUZIKOS FESTIVALIS</h3>
+                        <p class="price">$100</p>
+                        <p class="date">Aug 30, 2024</p>
+                    </div>
+                    <a href="#buy-ticket" class="buy-ticket-button">Skaityti daugiau</a>
+                </div>
+
+                <div class="event-item">
+                    <img src="/imgs/2.webp" alt="Event Photo">
+                    <div class="event-details">
+                        <h3>III TARPTAUTINIS JOSEPHO ACHRONO MUZIKOS FESTIVALIS</h3>
+                        <p class="price">$100</p>
+                        <p class="date">Aug 30, 2024</p>
+                    </div>
+                    <a href="#buy-ticket" class="buy-ticket-button">Skaityti daugiau</a>
+                </div>
+
+                <div class="event-item">
+                    <img src="/imgs/2.webp" alt="Event Photo">
+                    <div class="event-details">
+                        <h3>III TARPTAUTINIS JOSEPHO ACHRONO MUZIKOS FESTIVALIS</h3>
+                        <p class="price">$100</p>
+                        <p class="date">Aug 30, 2024</p>
+                    </div>
+                    <a href="#buy-ticket" class="buy-ticket-button">Skaityti daugiau</a>
+                </div>
+
+                <div class="event-item">
+                    <img src="/imgs/2.webp" alt="Event Photo">
+                    <div class="event-details">
+                        <h3>III TARPTAUTINIS JOSEPHO ACHRONO MUZIKOS FESTIVALIS</h3>
+                        <p class="price">$100</p>
+                        <p class="date">Aug 30, 2024</p>
+                    </div>
+                    <a href="#buy-ticket" class="buy-ticket-button">Skaityti daugiau</a>
+                </div>
+
+                <div class="event-item">
+                    <img src="/imgs/2.webp" alt="Event Photo">
+                    <div class="event-details">
+                        <h3>III TARPTAUTINIS JOSEPHO ACHRONO MUZIKOS FESTIVALIS</h3>
+                        <p class="price">$100</p>
+                        <p class="date">Aug 30, 2024</p>
+                    </div>
+                    <a href="#buy-ticket" class="buy-ticket-button">Skaityti daugiau</a>
+                </div>
+
+                <div class="event-item">
+                    <img src="/imgs/2.webp" alt="Event Photo">
+                    <div class="event-details">
+                        <h3>III TARPTAUTINIS JOSEPHO ACHRONO MUZIKOS FESTIVALIS</h3>
+                        <p class="price">$100</p>
+                        <p class="date">Aug 30, 2024</p>
+                    </div>
+                    <a href="#buy-ticket" class="buy-ticket-button">Skaityti daugiau</a>
+                </div>
+
+                <div class="event-item">
+                    <img src="/imgs/2.webp" alt="Event Photo">
+                    <div class="event-details">
+                        <h3>III TARPTAUTINIS JOSEPHO ACHRONO MUZIKOS FESTIVALIS</h3>
+                        <p class="price">$100</p>
+                        <p class="date">Aug 30, 2024</p>
+                    </div>
+                    <a href="#buy-ticket" class="buy-ticket-button">Skaityti daugiau</a>
+                </div>
+
+                <div class="event-item">
+                    <img src="/imgs/2.webp" alt="Event Photo">
+                    <div class="event-details">
+                        <h3>III TARPTAUTINIS JOSEPHO ACHRONO MUZIKOS FESTIVALIS</h3>
+                        <p class="price">$100</p>
+                        <p class="date">Aug 30, 2024</p>
+                    </div>
+                    <a href="#buy-ticket" class="buy-ticket-button">Skaityti daugiau</a>
+                </div>
+
+                <div class="event-item">
+                    <img src="/imgs/2.webp" alt="Event Photo">
+                    <div class="event-details">
+                        <h3>III TARPTAUTINIS JOSEPHO ACHRONO MUZIKOS FESTIVALIS</h3>
+                        <p class="price">$100</p>
+                        <p class="date">Aug 30, 2024</p>
+                    </div>
+                    <a href="#buy-ticket" class="buy-ticket-button">Skaityti daugiau</a>
+                </div>
+                <!-- Repeat event items as needed -->
+            </section>
         </div>
-
-        <div id="content-display">
-            <p>Select a content type to view.</p>
-        </div>
-
-        <button id="logout-btn">Logout</button>
     </div>
-    <script src="./js/index.js"></script> 
+
+    <script>
+        // JavaScript for price range label update and filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search');
+            const categorySelect = document.getElementById('category');
+            const placeSelect = document.getElementById('place');
+
+            // Filter event items based on search, category, and place
+            searchInput.addEventListener('input', filterEvents);
+            categorySelect.addEventListener('change', filterEvents);
+            placeSelect.addEventListener('change', filterEvents);
+
+            function filterEvents() {
+                const searchText = searchInput.value.toLowerCase();
+                const selectedCategory = categorySelect.value;
+                const selectedPlace = placeSelect.value;
+
+                document.querySelectorAll('.event-item').forEach(item => {
+                    const title = item.querySelector('.event-details h3').textContent.toLowerCase();
+                    const category = item.dataset.category || '';
+                    const place = item.dataset.place || '';
+
+                    const matchesSearch = title.includes(searchText);
+                    const matchesCategory = !selectedCategory || category.includes(selectedCategory);
+                    const matchesPlace = !selectedPlace || place.includes(selectedPlace);
+
+                    if (matchesSearch && matchesCategory && matchesPlace) {
+                        item.style.display = '';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
