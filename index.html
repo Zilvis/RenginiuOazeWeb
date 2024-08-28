@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="index-container">
+        <h1>Welcome to the User Dashboard</h1>
+        <p id="user-info">Loading user information...</p>
+
+        <!-- New Section for Accessing Test Endpoints -->
+        <div class="access-controls">
+            <button id="public-content-btn">Public Content</button>
+            <button id="user-content-btn">User Content</button>
+            <button id="moderator-content-btn">Moderator Content</button>
+            <button id="admin-content-btn">Admin Content</button>
+        </div>
+
+        <div id="content-display">
+            <p>Select a content type to view.</p>
+        </div>
+
+        <button id="logout-btn">Logout</button>
+    </div>
+    <script src="./js/index.js"></script> 
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/authorization.css">
+    <script src="https://kit.fontawesome.com/babf29ea79.js" crossorigin="anonymous"></script>
+    <title>Registracija</title>
+</head>
+<body>
+    <div class="login-container">
+        <form id="registration-form">
+            <label for="username"><i class="fa-regular fa-user"></i> Slapyvardis</label>
+            <input type="text" name="username" id="username" required>
+
+            <label for="email"><i class="fa-regular fa-envelope"></i> El.Paštas</label>
+            <input type="email" name="email" id="email" required>
+            
+            <label for="password"><i class="fa-solid fa-key"></i> Slaptažodis</label>
+            <input type="password" name="password" id="password" pattern="^\S{8,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Slaptažodis turi buti bent 8 simbolių!' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;" required>
+
+            <label for="password-confirm"><i class="fa-solid fa-lock"></i> Pakartoti slaptažodį</label>
+            <input type="password" name="password_two" id="password-confirm" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Slaptažodis turi sutapti!' : '');" required>
+
+           
+            <button type="submit">Registruotis <i class="fa-solid fa-right-to-bracket"></i></button>
+
+            <p class="register-label"> Jau turi paskyrą? <a href="/login.html"> Prisijunk!</a></p>
+        </form>
+
+        <div id="message"> 
+            <p id="letter" class="invalid">Mažoji raidė</p>
+            <p id="capital" class="invalid">Didžioji raidė</p>
+            <p id="number" class="invalid">Skaičius</p>
+            <p id="length" class="invalid">Mažiasias ilgis 8</p>
+        </div>
+
+        <div id="password-message">
+            <p id="letter" class="invalid">Mažoji raidė</p>
+        </div>
+    </div>
+    <script src="./js/validation.js"></script>
+    <script src="./js/registration.js"></script>    
+</body>
+</html>

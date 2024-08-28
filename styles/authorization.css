@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+body {
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: #555;
+    background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 2px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 350px;
+}
+
+.login-container label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+.login-container input[type="email"],
+.login-container input[type="password"],
+.login-container input[type="text"]
+ {
+    width: calc(100%);
+    padding: 12px 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px 0;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 2px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login-container button[type="submit"] {
+    background-color: #ffc917;
+    text-transform: uppercase;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.login-container button:hover {
+    color: #555;
+}
+
+.register-label {
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.register-label a {
+    color: #ffc917;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.register-label a:hover {
+    color: #555;
+}
+
+#message {
+    display:none;
+    color: #555;
+    position: relative;
+  }
+  
+#message p {
+    padding: 2px 35px;
+}
+
+#password-message {
+    display:none;
+    color: #555;
+    position: relative;
+  }
+  
+#password-message p {
+    padding: 2px 35px;
+}
+
+.valid {
+    color: green;
+}
+  
+.valid:before {
+    position: relative;
+    left: -35px;
+    content: "✔";
+}
+  
+.invalid {
+    color: red;
+}
+  
+.invalid:before {
+    position: relative;
+    left: -35px;
+    content: "✖";
+}
