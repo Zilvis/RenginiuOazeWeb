@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renginiu oazė</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
+    
+</head>
+<body>
+    <div class="main">
+        <header>
+            <div class="main-header">
+                <div class="logo">
+                    <img src="/imgs/logo.png" alt="Logo">
+                </div>
+                <div class="top-nav-header">
+                    <ul class="top-nav-items">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <h1>Upload Event</h1>
+            <form id="eventForm">
+                <label for="eventName">Event Name:</label>
+                <input type="text" id="eventName" name="eventName" required><br><br>
+
+                <label for="eventDate">Event Date:</label>
+                <input type="date" id="eventDate" name="eventDate" required><br><br>
+
+                <label for="eventDescription">Event Description:</label>
+                <div id="editor-container" style="height: 150px;"></div>
+                <input type="hidden" id="eventDescription" name="eventDescription" required><br><br>
+                
+
+                <label for="eventLocation">Event Location:</label>
+                <input type="text" id="eventLocation" name="eventLocation" required><br><br>
+
+                <label for="eventPrice">Event price:</label>
+                <input type="text" id="eventPrice" name="eventPrice" required><br><br>
+
+                <label for="eventImage">Event Image:</label>
+                <input type="file" id="eventImage" name="eventImage" accept="image/*" required><br><br>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script src="js/addEvent.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+    <script>
+            const toolbarOptions = [
+            ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+            ['blockquote', 'code-block'],
+            ['link', 'image', 'video', 'formula'],
+
+            [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+            [{ 'list': 'ordered'}, { 'list': 'bullet' }, { 'list': 'check' }],
+            [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+            [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+            [{ 'direction': 'rtl' }],                         // text direction
+
+            [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+            [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+            [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+            [{ 'font': [] }],
+            [{ 'align': [] }],
+
+            ['clean']                                         // remove formatting button
+            ];
+
+            const quill = new Quill('#editor-container', {
+            modules: {
+                toolbar: toolbarOptions
+            },
+            theme: 'snow'
+            });
+        
+    </script>
+    <script src="/js/adminCheck.js"></script>
+</body>
+</html>

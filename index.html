@@ -14,7 +14,7 @@
                     <img src="/imgs/logo.png" alt="Logo">
                 </div>
                 <div class="top-nav-header">
-                    <ul class="top-nav-items">
+                    <ul class="top-nav-items" id="nav-items">
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#services">Services</a></li>
@@ -24,19 +24,9 @@
             </div>
         </header>
 
-
         <div class="content">
             <!-- Filter Section -->
             <div class="filter-section">
-                <div class="filter-group">
-                    <label for="category">Category:</label>
-                    <select id="category">
-                        <option value="">All Categories</option>
-                        <option value="concert">Concert</option>
-                        <option value="theater">Theater</option>
-                        <option value="sports">Sports</option>
-                    </select>
-                </div>
                 <div class="filter-group">
                     <label for="category">Category:</label>
                     <select id="category">
@@ -56,137 +46,38 @@
                     </select>
                 </div>
             </div>
-        
+                <section class="events" id="events-section"></section>
+            
 
-            <!-- Events Section -->
-            <section class="events">
-                <!-- Event items -->
-                <div class="event-item">
-                    <img src="/imgs/2.webp" alt="Event Photo">
-                    <div class="event-details">
-                        <h3>III TARPTAUTINIS JOSEPHO ACHRONO MUZIKOS FESTIVALIS</h3>
-                        <p class="price">$100</p>
-                        <p class="date">Aug 30, 2024</p>
-                    </div>
-                    <a href="#buy-ticket" class="buy-ticket-button">Skaityti daugiau</a>
-                </div>
+            <div class="pagination-controls">
+                <button id="prev-page" disabled>Previous</button>
+                <span id="page-info"></span>
+                <button id="next-page">Next</button>
+            </div>
 
-                <div class="event-item">
-                    <img src="/imgs/2.webp" alt="Event Photo">
-                    <div class="event-details">
-                        <h3>III TARPTAUTINIS JOSEPHO ACHRONO MUZIKOS FESTIVALIS</h3>
-                        <p class="price">$100</p>
-                        <p class="date">Aug 30, 2024</p>
-                    </div>
-                    <a href="#buy-ticket" class="buy-ticket-button">Skaityti daugiau</a>
-                </div>
-
-                <div class="event-item">
-                    <img src="/imgs/2.webp" alt="Event Photo">
-                    <div class="event-details">
-                        <h3>III TARPTAUTINIS JOSEPHO ACHRONO MUZIKOS FESTIVALIS</h3>
-                        <p class="price">$100</p>
-                        <p class="date">Aug 30, 2024</p>
-                    </div>
-                    <a href="#buy-ticket" class="buy-ticket-button">Skaityti daugiau</a>
-                </div>
-
-                <div class="event-item">
-                    <img src="/imgs/2.webp" alt="Event Photo">
-                    <div class="event-details">
-                        <h3>III TARPTAUTINIS JOSEPHO ACHRONO MUZIKOS FESTIVALIS</h3>
-                        <p class="price">$100</p>
-                        <p class="date">Aug 30, 2024</p>
-                    </div>
-                    <a href="#buy-ticket" class="buy-ticket-button">Skaityti daugiau</a>
-                </div>
-
-                <div class="event-item">
-                    <img src="/imgs/2.webp" alt="Event Photo">
-                    <div class="event-details">
-                        <h3>III TARPTAUTINIS JOSEPHO ACHRONO MUZIKOS FESTIVALIS</h3>
-                        <p class="price">$100</p>
-                        <p class="date">Aug 30, 2024</p>
-                    </div>
-                    <a href="#buy-ticket" class="buy-ticket-button">Skaityti daugiau</a>
-                </div>
-
-                <div class="event-item">
-                    <img src="/imgs/2.webp" alt="Event Photo">
-                    <div class="event-details">
-                        <h3>III TARPTAUTINIS JOSEPHO ACHRONO MUZIKOS FESTIVALIS</h3>
-                        <p class="price">$100</p>
-                        <p class="date">Aug 30, 2024</p>
-                    </div>
-                    <a href="#buy-ticket" class="buy-ticket-button">Skaityti daugiau</a>
-                </div>
-
-                <div class="event-item">
-                    <img src="/imgs/2.webp" alt="Event Photo">
-                    <div class="event-details">
-                        <h3>III TARPTAUTINIS JOSEPHO ACHRONO MUZIKOS FESTIVALIS</h3>
-                        <p class="price">$100</p>
-                        <p class="date">Aug 30, 2024</p>
-                    </div>
-                    <a href="#buy-ticket" class="buy-ticket-button">Skaityti daugiau</a>
-                </div>
-
-                <div class="event-item">
-                    <img src="/imgs/2.webp" alt="Event Photo">
-                    <div class="event-details">
-                        <h3>III TARPTAUTINIS JOSEPHO ACHRONO MUZIKOS FESTIVALIS</h3>
-                        <p class="price">$100</p>
-                        <p class="date">Aug 30, 2024</p>
-                    </div>
-                    <a href="#buy-ticket" class="buy-ticket-button">Skaityti daugiau</a>
-                </div>
-
-                <div class="event-item">
-                    <img src="/imgs/2.webp" alt="Event Photo">
-                    <div class="event-details">
-                        <h3>III TARPTAUTINIS JOSEPHO ACHRONO MUZIKOS FESTIVALIS</h3>
-                        <p class="price">$100</p>
-                        <p class="date">Aug 30, 2024</p>
-                    </div>
-                    <a href="#buy-ticket" class="buy-ticket-button">Skaityti daugiau</a>
-                </div>
-                <!-- Repeat event items as needed -->
-            </section>
         </div>
     </div>
-
+    <script src="js/main.js"></script>
+    <script src="js/userAthenticationCheck.js"></script>
     <script>
-        // JavaScript for price range label update and filter functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchInput = document.getElementById('search');
-            const categorySelect = document.getElementById('category');
-            const placeSelect = document.getElementById('place');
+                const updatePaginationControls = () => {
+            document.getElementById('page-info').textContent = `Page ${currentPage + 1} of ${totalPages}`;
 
-            // Filter event items based on search, category, and place
-            searchInput.addEventListener('input', filterEvents);
-            categorySelect.addEventListener('change', filterEvents);
-            placeSelect.addEventListener('change', filterEvents);
+            document.getElementById('prev-page').disabled = currentPage === 0;
+            document.getElementById('next-page').disabled = currentPage === totalPages - 1;
+        };
 
-            function filterEvents() {
-                const searchText = searchInput.value.toLowerCase();
-                const selectedCategory = categorySelect.value;
-                const selectedPlace = placeSelect.value;
+        document.getElementById('prev-page').addEventListener('click', async () => {
+            if (currentPage > 0) {
+                eventList = await getAllEvents(currentPage - 1);
+                addDataToHtml(eventList);
+            }
+        });
 
-                document.querySelectorAll('.event-item').forEach(item => {
-                    const title = item.querySelector('.event-details h3').textContent.toLowerCase();
-                    const category = item.dataset.category || '';
-                    const place = item.dataset.place || '';
-
-                    const matchesSearch = title.includes(searchText);
-                    const matchesCategory = !selectedCategory || category.includes(selectedCategory);
-                    const matchesPlace = !selectedPlace || place.includes(selectedPlace);
-
-                    if (matchesSearch && matchesCategory && matchesPlace) {
-                        item.style.display = '';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
+        document.getElementById('next-page').addEventListener('click', async () => {
+            if (currentPage < totalPages - 1) {
+                eventList = await getAllEvents(currentPage + 1);
+                addDataToHtml(eventList);
             }
         });
     </script>

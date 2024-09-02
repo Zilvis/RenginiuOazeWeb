@@ -102,7 +102,7 @@ header {
 
 .events {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
@@ -215,3 +215,307 @@ header {
         padding: 5px;
     }
 }
+
+.event-detail-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 50px 0;
+    gap: 20px;
+}
+
+.event-photo {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.event-details-full h3 {
+    font-size: 1em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.event-details-full p {
+    margin: 10px 0;
+    font-size: 1.1em;
+    
+}
+
+.event-details-full .price {
+    font-size: 1.5em;
+    color: #ff5722;
+    font-weight: bold;
+}
+
+.event-details-full .date,
+.event-details-full .location {
+    color: #777;
+    font-size: 1em;
+}
+
+.event-details-full .description {
+    margin-top: 20px;
+    font-size: 1em;
+    color: #555;
+    white-space: pre-wrap;
+}
+
+.event-left img {
+    width: 100%;
+}
+
+.event-left iframe{
+    width: 100%;
+    height: 50vh;
+}
+
+.event-left {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.event-right {
+    width: 35%;
+    background-color: #f9f9f9;
+    border-radius: 2px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="date"],
+textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    font-size: 16px;
+}
+
+textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+button {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #e64a19;
+}
+
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination-controls button {
+    padding: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+#page-info {
+    display: inline-block;
+    margin: 0 10px;
+    line-height: 32px;
+}
+
+/* WYSIWYG Styles */
+.ql-container {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.ql-editor {
+    min-height: 150px;
+}
+
+/* USER INFO */
+
+.user-info, .user-posts {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-info h2, .user-posts h2 {
+    margin-bottom: 20px;
+    color: #333;
+    border-bottom: 2px solid #ff6347;
+    padding-bottom: 10px;
+    font-size: 24px;
+}
+
+.user-info p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.user-posts {
+    max-height: 400px; /* Set a fixed height for the posts container */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.post-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-item h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.post-item p {
+    font-size: 16px;
+    color: #666;
+}
+
+.post-item button {
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+}
+
+.post-item button:hover {
+    background-color: #ff4500;
+}
+
+.post-item:hover {
+    transform: translateY(-5px);
+}
+
+.post-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Edit form styles */
+.edit-form-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.edit-form-container.active {
+    display: block;
+}
+
+.edit-form-container h2 {
+    margin-bottom: 15px;
+}
+
+.edit-form-container input[type="text"],
+.edit-form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.edit-form-container button {
+    padding: 10px 20px;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
