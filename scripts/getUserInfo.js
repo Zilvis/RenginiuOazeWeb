@@ -1,9 +1,7 @@
-const jwtToken = getCookie("jwt");
+const jwt = getCookie("jwt");
 const apiUrl = "http://localhost:8080";
 let eventListHTML = document.querySelector('#posts-container');
 let eventList = [];
-let editModal = document.getElementById("editModal");
-let closeModalBtn = document.getElementById("closeModal");
 
 // User Details
 document.addEventListener('DOMContentLoaded', async function() { 
@@ -11,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         const response = await fetch(apiUrl + '/api/user/info', {
             method: 'GET',
             headers: {
-                'Authorization': 'Bearer ' + jwtToken
+                'Authorization': 'Bearer ' + jwt
             }
         });
 
@@ -38,7 +36,7 @@ async function getAllEvents() {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + jwtToken
+                'Authorization': 'Bearer ' + jwt
             },
         });
         
@@ -66,11 +64,12 @@ const addDataToHtml = (eventList) => {
             let newEvent = document.createElement('div');
             newEvent.className = 'post-item';
             newEvent.dataset.id = event.id;
-            
+            const safeTitle = escapeHtml(event.title);
+
             newEvent.innerHTML = `
-               <h3>${event.title}</h3> 
+               <h3>${safeTitle}</h3> 
                <p>${event.status}</p>
-               <button onclick="editPost(${event.id}, '${event.title}', '${event.status}')">Edit</button>
+               <button onclick="editPost(${event.id}, '${safeTitle}')">Edit</button>
                <button onclick="deletePost(${event.id})">Delete</button>
             `;
             eventListHTML.appendChild(newEvent);
@@ -85,19 +84,17 @@ const addDataToHtml = (eventList) => {
     addDataToHtml(eventList);
 })();
 
-// Utility function to get the JWT from cookies
 function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
-// Function to handle post editing
+// edit
 function editPost(postId, title, status) {
     document.getElementById('editTitle').value = title;
     document.getElementById('editStatus').value = status;
 
-    editModal.style.display = "block";
 
     document.getElementById('editPostForm').onsubmit = async function(event) {
         event.preventDefault();
@@ -109,7 +106,7 @@ function editPost(postId, title, status) {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + jwtToken
+                    'Authorization': 'Bearer ' + jwt
                 },
                 body: JSON.stringify({
                     title: updatedTitle,
@@ -119,7 +116,7 @@ function editPost(postId, title, status) {
 
             if (response.ok) {
                 alert('Post updated successfully');
-                editModal.style.display = "none";
+                
                 window.location.reload();
             } else {
                 console.error('Failed to update post:', response.status);
@@ -130,19 +127,14 @@ function editPost(postId, title, status) {
     };
 }
 
-// Function to close the modal
-closeModalBtn.onclick = function() {
-    editModal.style.display = "none";
-};
-
-// Function to handle post deletion with confirmation
+// delete
 async function deletePost(postId) {
     if (confirm('Are you sure you want to delete this post?')) {
         try {
             const response = await fetch(apiUrl + `/api/user/posts/${postId}`, {
                 method: 'DELETE',
                 headers: {
-                    'Authorization': 'Bearer ' + jwtToken
+                    'Authorization': 'Bearer ' + jwt
                 }
             });
 
@@ -156,4 +148,17 @@ async function deletePost(postId) {
             console.error('Error deleting post:', error);
         }
     }
+}
+
+
+function escapeHtml(text) {
+    const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;',
+        '/': '&#x2F;'
+    };
+    return text.replace(/[&<>"'/]/g, function(m) { return map[m]; });
 }

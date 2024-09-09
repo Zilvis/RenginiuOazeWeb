@@ -10,39 +10,31 @@
     <div class="main">
         <header>
             <div class="main-header">
-                <div class="logo">
-                    <img src="/imgs/logo.png" alt="Logo">
-                </div>
-                <div class="top-nav-header">
-                    <ul class="top-nav-items" id="nav-items">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
+                <a href="/index.html">
+                    <div class="logo">
+                        <img src="/imgs/logo.png" alt="Logo">
+                    </div>
+                </a>
+                
             </div>
         </header>
 
         <div class="content">
-            <div class="user-info">
-                <h2>User Information</h2>
-                <p><strong>ID:</strong> <span id="userId"></span></p>
-                <p><strong>Username:</strong> <span id="username"></span></p>
-                <p><strong>Email:</strong> <span id="email"></span></p>
-            </div>
-            
-            <div class="user-posts">
-                <h2>Your Posts</h2>
-                <div id="posts-container"></div>
-            </div>
-        </div>
+            <div class="user-posts-wrapper">
+                <div class="user-info">
+                    <h2>User Information</h2>
+                    <p><strong>ID:</strong> <span id="userId"></span></p>
+                    <p><strong>Username:</strong> <span id="username"></span></p>
+                    <p><strong>Email:</strong> <span id="email"></span></p>
+                </div>
 
-        <!-- Edit Modal -->
-        <div id="editModal" class="modal">
-            <div class="modal-content">
-                <span class="close" id="closeModal">&times;</span>
-                <h2>Edit Post</h2>
+                <div class="user-posts">
+                    <div id="posts-container"></div>
+                </div>
+            </div>
+
+            <!-- Edit Form -->
+            <div class="edit-form">
                 <form id="editPostForm">
                     <label for="editTitle">Title:</label>
                     <input type="text" id="editTitle" name="editTitle" required>
@@ -52,8 +44,7 @@
                 </form>
             </div>
         </div>
-
     </div>
-    <script src="/js/getUserInfo.js"></script>
+    <script src="/scripts/getUserInfo.js"></script>
 </body>
 </html>

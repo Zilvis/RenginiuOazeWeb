@@ -1,4 +1,4 @@
-var url = 'http://localhost:8080/api';
+var apiUrl = 'http://localhost:8080/api';
 let eventListHTML = document.querySelector('#events-section');
 let eventList = [];
 
@@ -7,7 +7,7 @@ let totalPages = 0;
 
 async function getAllEvents(page = 0) {
     try {
-        let response = await fetch(`${url}/events/public/?page=${page}&size=10`, {
+        let response = await fetch(`${apiUrl}/events/public/?page=${page}&size=10`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -71,7 +71,7 @@ const loadEventFullStory = () => {
     const params = new URLSearchParams(window.location.search);
     const eventId = params.get('id');
 
-    fetch(url + `/events/public/${eventId}`)
+    fetch(apiUrl + `/events/public/${eventId}`)
         .then(response => {
             if (response.ok) {
                 return response.json();

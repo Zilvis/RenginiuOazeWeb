@@ -12,48 +12,55 @@
     <div class="main">
         <header>
             <div class="main-header">
-                <div class="logo">
-                    <img src="/imgs/logo.png" alt="Logo">
-                </div>
+                <a href="/index.html">
+                    <div class="logo">
+                        <img src="/imgs/logo.png" alt="Logo">
+                    </div>
+                </a>
                 <div class="top-nav-header">
-                    <ul class="top-nav-items">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
+                    <div class="action">
+                        <div class="profile" onclick="menuToggle();">
+                            <img src="/imgs/icons/user.png" />
+                        </div>
+                        <div class="menu">
+                          
+                          <ul id="nav-items">
+                            
+                          </ul>
+                        </div>
+                      </div>
                 </div>
             </div>
         </header>
 
         <div class="content">
-            <h1>Upload Event</h1>
+            <h1>Paskelbti savo renginį</h1>
             <form id="eventForm">
-                <label for="eventName">Event Name:</label>
+                <label for="eventName">Renginio pavadinimas:</label>
                 <input type="text" id="eventName" name="eventName" required><br><br>
 
-                <label for="eventDate">Event Date:</label>
-                <input type="date" id="eventDate" name="eventDate" required><br><br>
+                <label for="eventDate">Renginio data:</label>
+                <input type="datetime-local" id="eventDate" name="eventDate" required><br><br>
 
-                <label for="eventDescription">Event Description:</label>
+                <label for="eventDescription">Renginio aprašymas:</label>
                 <div id="editor-container" style="height: 150px;"></div>
                 <input type="hidden" id="eventDescription" name="eventDescription" required><br><br>
                 
 
-                <label for="eventLocation">Event Location:</label>
+                <label for="eventLocation">Renginio vieta:</label>
                 <input type="text" id="eventLocation" name="eventLocation" required><br><br>
 
-                <label for="eventPrice">Event price:</label>
+                <label for="eventPrice">Renginio kaina:</label>
                 <input type="text" id="eventPrice" name="eventPrice" required><br><br>
 
-                <label for="eventImage">Event Image:</label>
+                <label for="eventImage">Pagrindinė nuotrauka:</label>
                 <input type="file" id="eventImage" name="eventImage" accept="image/*" required><br><br>
 
-                <button type="submit">Submit</button>
+                <button type="submit">Pateikti</button>
             </form>
         </div>
     </div>
-    <script src="js/addEvent.js"></script>
+    <script src="scripts/addEvent.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
     <script>
             const toolbarOptions = [
@@ -85,6 +92,12 @@
             });
         
     </script>
-    <script src="/js/adminCheck.js"></script>
+    <script src="/scripts/userAthenticationCheck.js"></script>
+    <script>
+        function menuToggle() {
+          const toggleMenu = document.querySelector(".menu");
+          toggleMenu.classList.toggle("active");
+        }
+      </script>
 </body>
 </html>

@@ -5,21 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Details</title>
     <link rel="stylesheet" href="/styles/styles.css">
+    <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
     <div class="main">
         <header>
             <div class="main-header">
-                <div class="logo">
-                    <img src="/imgs/logo.png" alt="Logo">
-                </div>
+                <a href="/index.html">
+                    <div class="logo">
+                        <img src="/imgs/logo.png" alt="Logo">
+                    </div>
+                </a>
                 <div class="top-nav-header">
-                    <ul class="top-nav-items">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
+                    <div class="action">
+                        <div class="profile" onclick="menuToggle();">
+                            <img src="/imgs/icons/user.png" />
+                        </div>
+                        <div class="menu">
+                          
+                          <ul id="nav-items">
+                            
+                          </ul>
+                        </div>
+                      </div>
                 </div>
             </div>
         </header>
@@ -32,17 +40,22 @@
                 </div>
                 <div class="event-right">
                     <div class="event-details-full">
-                        <h3>Kompiuterinių žaidimų festivalis „Playtime 2024“</h3>
-                        <p class="price">$120</p>
-                        <p class="date">2024-06-11</p>
-                        <p class="location">Vilnius</p>
+                        <h3></h3>
+                        <p class="date"></p>
+                        <p class="location"></p>
                     </div>
                     <button class="buy-ticket-button" style="display: block;">Buy Ticket</button>
                 </div>
             </div>
         </div>
     </div>
-<script src="js/main.js"></script>
-
+    <script src="scripts/fullStory.js"></script>
+    <script src="scripts/userAthenticationCheck.js"></script>
+    <script>
+        function menuToggle() {
+          const toggleMenu = document.querySelector(".menu");
+          toggleMenu.classList.toggle("active");
+        }
+      </script>
 </body>
 </html>

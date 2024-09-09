@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renginiu oazė</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="main">
+        <header>
+            <div class="main-header">
+                <a href="/index.html">
+                    <div class="logo">
+                        <img src="/imgs/logo.png" alt="Logo">
+                    </div>
+                </a>
+                <ul class="top-buttons">
+                    <li><a onclick="openTab('profilis')">Profilis</a></li>
+                    <li><a onclick="openTab('renginiai')">Mano Renginiai</a></li>
+                    <li><a onclick="openTab('bilietai')">Bilietai</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <div class="content">
+            
+            <div id="profilis" class="tabs">
+                <div class="user-info">
+                    <h2>User Information</h2>
+                    <p><strong>Vardas:</strong> <span id="username"></span></p>
+                    <p><strong>El-Paštas:</strong> <span id="email"></span></p>
+                </div>
+            </div>
+
+            <div id="renginiai" class="tabs" style="display:none">
+            renginiai
+            </div>
+
+            <div id="bilietai" class="tabs" style="display:none">
+            bilietai
+            </div>
+
+            <div id="redaguoti" class="tabs" >
+                <form id="eventForm">
+                    <label for="eventName">Renginio pavadinimas:</label>
+                    <input type="text" id="eventName" name="eventName" required><br><br>
+    
+                    <label for="eventDate">Renginio data:</label>
+                    <input type="datetime-local" id="eventDate" name="eventDate" required><br><br>
+    
+                    <label for="eventDescription">Renginio aprašymas:</label>
+                    <div id="editor-container" style="height: 150px;"></div>
+                    <input type="hidden" id="eventDescription" name="eventDescription" required><br><br>
+                    
+                    <label for="eventLocation">Renginio vieta:</label>
+                    <input type="text" id="eventLocation" name="eventLocation" required><br><br>
+    
+                    <label for="eventPrice">Renginio kaina:</label>
+                    <input type="text" id="eventPrice" name="eventPrice" required><br><br>
+    
+                    <label for="eventImage">Pagrindinė nuotrauka:</label>
+                    <input type="file" id="eventImage" name="eventImage" accept="image/*" required><br><br>
+    
+                    <button type="submit">Išsaugoti</button>
+                </form>
+            </div>
+        </div>
+    
+    <script>
+        const jwt = getCookie("jwt");
+        const apiUrl = "http://localhost:8080";
+        let eventListHTML = document.querySelector('#posts-container');
+        let eventList = [];
+
+
+        // User Details
+        document.addEventListener('DOMContentLoaded', async function() { 
+            try {
+                const response = await fetch(apiUrl + '/api/user/info', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': 'Bearer ' + jwt
+                    }
+                });
+
+                if (response.ok) {
+                    const userInfo = await response.json();
+                    document.getElementById('username').textContent = userInfo.username;
+                    document.getElementById('email').textContent = userInfo.email;
+                } else if (response.status === 401) {
+                    document.body.innerHTML = '<p>You are not authorized to view this page. Please log in.</p>';
+                } else {
+                    document.body.innerHTML = '<p>Failed to retrieve user information. Please try again later.</p>';
+                }
+            } catch (error) {
+                console.error('Error fetching user info:', error);
+                document.body.innerHTML = '<p>An error occurred while fetching user information. Please try again later.</p>';
+            }
+        });
+        
+        
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;',
+                '/': '&#x2F;'
+            };
+            return text.replace(/[&<>"'/]/g, function(m) { return map[m]; });
+        }
+
+    </script>
+    
+    <script>
+        function menuToggle() {
+          const toggleMenu = document.querySelector(".menu");
+          toggleMenu.classList.toggle("active");
+        }
+
+        function openTab(tabName) {
+        var i;
+        var x = document.getElementsByClassName("tabs");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+        }
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+      <script>
+              const toolbarOptions = [
+              ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+              ['blockquote', 'code-block'],
+              ['link', 'image', 'video', 'formula'],
+  
+              [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+              [{ 'list': 'ordered'}, { 'list': 'bullet' }, { 'list': 'check' }],
+              [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+              [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+              [{ 'direction': 'rtl' }],                         // text direction
+  
+              [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+              [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+  
+              [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+              [{ 'font': [] }],
+              [{ 'align': [] }],
+  
+              ['clean']                                         // remove formatting button
+              ];
+  
+              const quill = new Quill('#editor-container', {
+              modules: {
+                  toolbar: toolbarOptions
+              },
+              theme: 'snow'
+              });
+          
+      </script> 
+</body>
+</html>

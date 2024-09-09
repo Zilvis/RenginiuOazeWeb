@@ -1,9 +1,11 @@
+var apiUrl = 'http://localhost:8080/api';
+
 window.onload = async function() {
     const jwtToken = getCookie('jwt');
     const navItems = document.getElementById('nav-items');
 
     try {
-        const response = await fetch('http://localhost:8080/api/auth/check2', {
+        const response = await fetch( apiUrl+ '/auth/check2', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -13,8 +15,9 @@ window.onload = async function() {
 
         if (response.ok) {
             const userMenu = `
-            <li><a href="#profile">Profile</a></li>
-            <li><a href="#" id="logout-btn">Logout</a></li>
+            <li><img src="./imgs/icons/user-circle.svg" /><a href="/userinfo.html">Profilis</a></li>
+            <li><img src="./imgs/icons/edit.svg" /><a href="/addEvent.html">Paskelbti renginį</a></li>
+            <li><img src="./imgs/icons/log-out.png" /><a href="#" id="logout-btn">Atsijungti</a></li>
         `;
         navItems.innerHTML += userMenu;
 
@@ -25,7 +28,8 @@ window.onload = async function() {
         });
         } else if (response.status === 401){
             const loginMenu = `
-            <li><a href="/login.html">Login</a></li>
+            <li><img src="./imgs/icons/user-circle.svg" /><a href="/login.html">Prisijungti</a></li>
+            <li><img src="./imgs/icons/register.png" /><a href="/register.html">Registruotis</a></li>
             `;
             navItems.innerHTML += loginMenu;
         }
@@ -42,7 +46,7 @@ function getCookie(name) {
 }
 
 function logout() {
-    fetch('http://localhost:8080/api/auth/signout', {
+    fetch(apiUrl+ '/auth/logout', {
         method: 'POST',
         credentials: 'include'
     }).then(response => {
